@@ -183,7 +183,7 @@ export const products = [
   },
   {
     id: "4",
-    name: "Western Summer Vibes",
+    name: "Anni Designer",
     price: 119.99,
     quantityAvailable: 2,
     category: "Western",
@@ -243,7 +243,7 @@ export const products = [
   },
   {
     id: "5",
-    name: "Western Summer Vibes",
+    name: "Fab club",
     price: 119.99,
     quantityAvailable: 2,
     category: "Western",
@@ -303,7 +303,7 @@ export const products = [
   },
   {
     id: "6",
-    name: "Western Summer Vibes",
+    name: "Mehrang",
     price: 119.99,
     discount: 30,
     quantityAvailable: 2,

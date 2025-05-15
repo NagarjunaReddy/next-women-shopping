@@ -3,9 +3,19 @@ import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import useOnClickOutside from "use-onclickoutside";
+import AutoSuggest from "../auto-suggest";
+import products from "../../utils/data/products";
 
 import type { RootState } from "@/store";
+const testData = products.map((item) =>
+   item.name
+  );
 
+const fetchSuggestions = async (query: string): Promise<string[]> => {
+  return testData.filter((item) =>
+    item.toLowerCase().includes(query.toLowerCase())
+  );
+};
 const Header = () => {
   const router = useRouter();
   const { cartItems } = useSelector((state: RootState) => state.cart);
@@ -72,7 +82,7 @@ const Header = () => {
         </nav>
 
         <div className="site-header__actions">
-          <button
+          {/*<button
             ref={searchRef}
             className={`search-form-wrapper ${searchOpen ? "search-form--active" : ""}`}
           >
@@ -91,7 +101,8 @@ const Header = () => {
               onClick={() => setSearchOpen(!searchOpen)}
               className="icon-search"
             />
-          </button>
+          </button>*/}
+          <AutoSuggest fetchSuggestions={fetchSuggestions} />
           <Link href="/cart" legacyBehavior>
             <button className="btn-cart">
               <i className="icon-cart" />
