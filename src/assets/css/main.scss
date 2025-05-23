@@ -2652,3 +2652,14 @@ h1,h2,h3,h4,h5 {
     }
   }
 }
+
+.auto-suggest {
+  position: relative;
+  width: 300px;
+  background: #fff;
+
+  .suggest-text {
+    width: 100%;
+    padding: 8px;
+  }
+}

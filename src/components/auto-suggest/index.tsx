@@ -37,7 +37,7 @@ const AutoSuggest: React.FC<AutoSuggestProps> = ({ fetchSuggestions }) => {
   };
 
   return (
-    <div style={{ position: 'relative', width: 300, background: '#fff' }}>
+    <div className="auto-suggest">
       <input
         type="text" 
         value={query}
@@ -47,8 +47,8 @@ const AutoSuggest: React.FC<AutoSuggestProps> = ({ fetchSuggestions }) => {
         }}
         onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
         onFocus={() => setShowSuggestions(true)}
-        placeholder="Type to search..."
-        style={{ width: '100%', padding: '8px' }}
+        placeholder="search for products..."
+        className="suggest-text"
       />
 
       {showSuggestions && suggestions.length > 0 && (
@@ -60,7 +60,7 @@ const AutoSuggest: React.FC<AutoSuggestProps> = ({ fetchSuggestions }) => {
           margin: 0,
           padding: 0,
           listStyle: 'none',
-          background: '#000',
+          background: 'grey',
           border: '1px solid #ccc',
           zIndex: 10,
         }}>
