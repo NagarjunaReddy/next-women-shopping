@@ -15,7 +15,7 @@ const isProduction = process.env.NODE_ENV === "production";
 
 // only events on production
 if (isProduction) {
-
+console.log('is Prod:::', isProduction);
 }
 
 const poppins = Poppins({

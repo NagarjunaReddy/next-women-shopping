@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SwiperCore, { EffectFlip, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -15,10 +16,10 @@ const PageIntro = () => {
             <div className="container">
               <div className="page-intro__slide__content">
                 <h2>Sale of the summer collection</h2>
-                <a href="/products" className="btn-shop">
+                <Link href="/products" className="btn-shop">
                   <i className="icon-right" />
                   Shop now
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -32,10 +33,10 @@ const PageIntro = () => {
             <div className="container">
               <div className="page-intro__slide__content">
                 <h2>The summer Hitlist</h2>
-                <a href="/products" className="btn-shop">
+                <Link href="/products" className="btn-shop">
                   <i className="icon-right" />
                   Shop now
-                </a>
+                </Link>
               </div>
             </div>
           </div>

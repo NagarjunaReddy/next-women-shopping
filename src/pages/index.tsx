@@ -3,6 +3,7 @@ import PageIntro from "@/components/page-intro";
 import ProductsFeatured from "@/components/products-featured";
 
 import Layout from "../layouts/Main";
+import Link from "next/link";
 
 const IndexPage = () => {
   return (
@@ -17,9 +18,9 @@ const IndexPage = () => {
           >
             <div className="featured-item__content">
               <h3>New arrivals are now in!</h3>
-              <a href="/products" className="btn btn--rounded">
+              <Link href="/products" className="btn btn--rounded">
                 Show Collection
-              </a>
+              </Link>
             </div>
           </article>
 
@@ -29,9 +30,9 @@ const IndexPage = () => {
           >
             <div className="featured-item__content">
               <h3>Basic Western wear ₹699</h3>
-              <a href="/products" className="btn btn--rounded">
+              <Link href="/products" className="btn btn--rounded">
                 More details
-              </a>
+              </Link>
             </div>
           </article>
 
@@ -41,9 +42,9 @@ const IndexPage = () => {
           >
             <div className="featured-item__content">
               <h3>Sale this summer</h3>
-              <a href="/products" className="btn btn--rounded">
+              <Link href="/products" className="btn btn--rounded">
                 VIEW ALL
-              </a>
+              </Link>
             </div>
           </article>
         </div>

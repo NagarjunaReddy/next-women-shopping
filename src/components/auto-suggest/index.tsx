@@ -5,6 +5,7 @@ import products from "../../utils/data/products";
 type AutoSuggestProps = {
   fetchSuggestions: (query: string) => Promise<string[]>;
 };
+
 const fetchId =  (query: string): string => {
   return products.filter((item) =>
     item.name.includes(query)

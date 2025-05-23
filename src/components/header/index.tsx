@@ -44,7 +44,7 @@ const Header = () => {
     window.onscroll = function () {
       headerClass();
     };
-  }, []);
+  });
 
   const closeMenu = () => {
     setMenuOpen(false);
