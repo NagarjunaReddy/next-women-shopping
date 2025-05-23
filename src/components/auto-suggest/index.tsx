@@ -1,13 +1,21 @@
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import products from "../../utils/data/products";
 
 type AutoSuggestProps = {
   fetchSuggestions: (query: string) => Promise<string[]>;
+};
+const fetchId =  (query: string): string => {
+  return products.filter((item) =>
+    item.name.includes(query)
+  )[0].id ?? 1;
 };
 
 const AutoSuggest: React.FC<AutoSuggestProps> = ({ fetchSuggestions }) => {
   const [query, setQuery] = useState('');
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     if (!query) {
@@ -25,6 +33,7 @@ const AutoSuggest: React.FC<AutoSuggestProps> = ({ fetchSuggestions }) => {
   const handleSelect = (value: string) => {
     setQuery(value);
     setShowSuggestions(false);
+    router.push(`/product/${fetchId(value)}`);
   };
 
   return (
