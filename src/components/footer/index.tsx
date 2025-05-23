@@ -1,5 +1,3 @@
-import Logo from "../../assets/icons/logo";
-
 const Footer = () => {
   return (
     <footer className="site-footer">
