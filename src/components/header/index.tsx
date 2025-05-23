@@ -25,9 +25,7 @@ const Header = () => {
     !(!arrayPaths.includes(router.pathname)),
   );
   const [menuOpen, setMenuOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
   const navRef = useRef(null);
-  const searchRef = useRef(null);
 
   const headerClass = () => {
     if (window.pageYOffset === 0) {
@@ -52,13 +50,9 @@ const Header = () => {
     setMenuOpen(false);
   };
 
-  const closeSearch = () => {
-    setSearchOpen(false);
-  };
-
+ 
   // on click outside
   useOnClickOutside(navRef, closeMenu);
-  useOnClickOutside(searchRef, closeSearch);
 
   return (
     <header className={`site-header ${!onTop ? "site-header--fixed" : ""}`}>
@@ -82,26 +76,6 @@ const Header = () => {
         </nav>
 
         <div className="site-header__actions">
-          {/*<button
-            ref={searchRef}
-            className={`search-form-wrapper ${searchOpen ? "search-form--active" : ""}`}
-          >
-            <form className="search-form">
-              <i
-                className="icon-cancel"
-                onClick={() => setSearchOpen(!searchOpen)}
-              />
-              <input
-                type="text"
-                name="search"
-                placeholder="Enter the product you are looking for"
-              />
-            </form>
-            <i
-              onClick={() => setSearchOpen(!searchOpen)}
-              className="icon-search"
-            />
-          </button>*/}
           <AutoSuggest fetchSuggestions={fetchSuggestions} />
           <Link href="/cart" legacyBehavior>
             <button className="btn-cart">
