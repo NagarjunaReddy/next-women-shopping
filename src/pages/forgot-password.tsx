@@ -2,7 +2,6 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 
 import Layout from "../layouts/Main";
-import { postData } from "../utils/services";
 
 type ForgotMail = {
   email: string;
@@ -12,7 +11,7 @@ const ForgotPassword = () => {
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = async (data: ForgotMail) => {
-    
+    console.log(data);
   };
 
   return (
