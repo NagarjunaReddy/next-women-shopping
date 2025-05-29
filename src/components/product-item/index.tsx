@@ -28,7 +28,7 @@ const ProductItem = ({
   };
 
   return (
-    <div className="product-item">
+    <div className="product-item" style={{width: '200px' }} >
       <div className="product__image">
         <button
           type="button"

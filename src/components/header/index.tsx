@@ -6,6 +6,7 @@ import useOnClickOutside from "use-onclickoutside";
 import AutoSuggest from "../auto-suggest";
 import products from "../../utils/data/products";
 
+
 import type { RootState } from "@/store";
 const testData = products.map((item) =>
    item.name
@@ -74,7 +75,7 @@ const Header = () => {
             <p>Account</p>
           </button>
         </nav>
-
+        
         <div className="site-header__actions">
           <AutoSuggest fetchSuggestions={fetchSuggestions} />
           <Link href="/cart" legacyBehavior>
