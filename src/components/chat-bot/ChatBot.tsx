@@ -2,9 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import products from "../../utils/data/products";
-import SwiperCore, { EffectFlip, Navigation } from "swiper";
 import ProductItem from "../product-item";
-import type { ProductTypeList } from "@/types";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 let slidesPerView = 1.3;
@@ -22,11 +20,6 @@ if (process.browser) {
     centeredSlides = false;
   }
 }
-
-type ProductsCarouselType = {
-  products: ProductTypeList[];
-};
-SwiperCore.use([EffectFlip, Navigation]);
 interface Message {
   sender: "user" | "bot";
   text: string;
