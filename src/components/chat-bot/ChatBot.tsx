@@ -178,7 +178,7 @@ export default function Chatbot() {
           onKeyDown={handleKeyDown}
           placeholder="Ask about products..."
           className="flex-1 px-3 py-2 border rounded-l-md focus:outline-none"
-          style={{ width: "calc(100% - 100px)", padding: '10px' } }
+          style={{ width: "50%", padding: '10px' } }
         />
         <button
           onClick={handleUserInput}
