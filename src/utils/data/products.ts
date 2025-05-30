@@ -362,6 +362,189 @@ export const products = [
       },
     ],
   },
+  {
+    id: "7",
+    name: "Health Fit",
+    price: 1299,
+    discount: 35,
+    quantityAvailable: 2,
+    category: "Extra Soft",
+    currentPrice: 850,
+    sizes: ["xl", "l"],
+    colors: ["#000", "6F3E18", "#D4BE8D", "#FFF"],
+    images: ["/images/products/product-8.jpg"],
+    punctuation: {
+      countOpinions: 81,
+      punctuation: 4.5,
+      votes: [
+        {
+          value: 1,
+          count: 1,
+        },
+        {
+          value: 2,
+          count: 10,
+        },
+        {
+          value: 3,
+          count: 10,
+        },
+        {
+          value: 4,
+          count: 20,
+        },
+        {
+          value: 5,
+          count: 40,
+        },
+      ],
+    },
+    reviews: [
+      {
+        name: "John Doe",
+        avatar: "/images/featured-1.jpg",
+        description:
+          "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s</p>",
+        punctuation: 2,
+      },
+      {
+        name: "John Doe",
+        avatar: "/images/featured-1.jpg",
+        description:
+          "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s</p>",
+        punctuation: 4,
+      },
+      {
+        name: "John Doe",
+        avatar: "/images/featured-1.jpg",
+        description:
+          "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s</p>",
+        punctuation: 5,
+      },
+    ],
+  },
+  {
+    id: "8",
+    name: "Crocs Women Platform Heel Sandal",
+    price: 6995,
+    discount: 23,
+    quantityAvailable: 2,
+    category: "Western",
+    currentPrice: 5394,
+    sizes: ["xl", "l"],
+    colors: ["#000", "6F3E18", "#D4BE8D", "#FFF"],
+    images: ["/images/products/product-9.jpg"],
+    punctuation: {
+      countOpinions: 81,
+      punctuation: 4.5,
+      votes: [
+        {
+          value: 1,
+          count: 1,
+        },
+        {
+          value: 2,
+          count: 10,
+        },
+        {
+          value: 3,
+          count: 10,
+        },
+        {
+          value: 4,
+          count: 20,
+        },
+        {
+          value: 5,
+          count: 40,
+        },
+      ],
+    },
+    reviews: [
+      {
+        name: "John Doe",
+        avatar: "/images/featured-1.jpg",
+        description:
+          "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s</p>",
+        punctuation: 2,
+      },
+      {
+        name: "John Doe",
+        avatar: "/images/featured-1.jpg",
+        description:
+          "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s</p>",
+        punctuation: 4,
+      },
+      {
+        name: "John Doe",
+        avatar: "/images/featured-1.jpg",
+        description:
+          "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s</p>",
+        punctuation: 5,
+      },
+    ],
+  },
+  {
+    id: "9",
+    name: "ROCOSJEWE Automatic Retro Skeleton Mechanical Watch Ladies",
+    price: 35999,
+    discount: 62,
+    quantityAvailable: 2,
+    category: "Western",
+    currentPrice: 13599,
+    sizes: ["xl", "l"],
+    colors: ["#000", "6F3E18", "#D4BE8D", "#FFF"],
+    images: ["/images/products/product-10.jpg"],
+    punctuation: {
+      countOpinions: 81,
+      punctuation: 4.5,
+      votes: [
+        {
+          value: 1,
+          count: 1,
+        },
+        {
+          value: 2,
+          count: 10,
+        },
+        {
+          value: 3,
+          count: 10,
+        },
+        {
+          value: 4,
+          count: 20,
+        },
+        {
+          value: 5,
+          count: 40,
+        },
+      ],
+    },
+    reviews: [
+      {
+        name: "John Doe",
+        avatar: "/images/featured-1.jpg",
+        description:
+          "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s</p>",
+        punctuation: 2,
+      },
+      {
+        name: "John Doe",
+        avatar: "/images/featured-1.jpg",
+        description:
+          "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s</p>",
+        punctuation: 4,
+      },
+      {
+        name: "John Doe",
+        avatar: "/images/featured-1.jpg",
+        description:
+          "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s</p>",
+        punctuation: 5,
+      },
+    ],
+  }
 ];
 
 export default products;

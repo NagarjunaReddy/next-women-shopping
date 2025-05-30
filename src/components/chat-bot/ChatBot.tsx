@@ -3,23 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import products from "../../utils/data/products";
 import ProductItem from "../product-item";
-import { Swiper, SwiperSlide } from "swiper/react";
 
-let slidesPerView = 1.3;
-let centeredSlides = true;
-let spaceBetween = 30;
-if (process.browser) {
-  if (window.innerWidth > 768) {
-    slidesPerView = 3;
-    spaceBetween = 35;
-    centeredSlides = false;
-  }
-  if (window.innerWidth > 1024) {
-    slidesPerView = 4;
-    spaceBetween = 65;
-    centeredSlides = false;
-  }
-}
 interface Message {
   sender: "user" | "bot";
   text: string;
@@ -29,6 +13,7 @@ interface Message {
 }
 
 export default function Chatbot() {
+  const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       sender: "bot",
@@ -97,106 +82,107 @@ export default function Chatbot() {
       handleUserInput();
     }
   };
+  const resetChat = () => {
+    setMessages([
+      {
+        sender: "bot",
+        text: "Hi! How can I help you today?",
+        timestamp: Date.now(),
+        type: "text",
+      },
+    ]);
+  };
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
   return (
-    <div className="fixed bottom-4 right-4 w-full max-w-sm rounded-xl shadow-lg border border-gray-300 bg-white flex flex-col overflow-hidden">
-      <div className="bg-blue-600 text-white p-4 font-semibold">
-        💬 Chat Assistant
-      </div>
+    <>
+      {/* Toggle Button */}
+      {!isOpen && (
+        <button className="chat-button" onClick={() => setIsOpen(true)}>
+          💬 Chat
+        </button>
+      )}
 
-      <div className="flex-1 p-3 space-y-3 overflow-y-auto h-80 scrollbar-thin">
-        {messages.map((msg, idx) => (
-          <div
-            key={idx}
-            className={`flex ${
-              msg.sender === "user" ? "justify-end" : "justify-start"
-            }`}
-          >
-            <div className={`max-w-[75%]`}>
-              {msg.type === "text" ? (
-                <div
-                  className={`rounded-xl px-4 py-2 text-sm ${
-                    msg.sender === "user"
-                      ? "bg-blue-500 text-white text-right"
-                      : "bg-gray-200 text-gray-800 text-left"
-                  }`}
-                >
-                  {msg.text}
-                </div>
-              ) : (
-                <div className="bg-gray-100 rounded-lg p-2">
-                  <p className="text-sm mb-2">{msg.text}</p>
-                  <div className="products-carousel">
-                    <Swiper
-                      spaceBetween={spaceBetween}
-                      loop
-                      centeredSlides={centeredSlides}
-                      watchOverflow
-                      slidesPerView={slidesPerView}
-                      className="swiper-wrapper"
-                    >
-                      {msg.payload?.map((product: any) => (
-                        <SwiperSlide key={product.id}>
-                          <ProductItem
-                            id={product.id}
-                            name={product.name}
-                            price={product.price}
-                            color={product.color}
-                            discount={product.discount}
-                            currentPrice={product.currentPrice}
-                            key={product.id}
-                            images={product.images}
-                          />
-                        </SwiperSlide>
-                      ))}
-                    </Swiper>
-                  </div>
-                </div>
-              )}
+      {/* Chat UI */}
+      {isOpen && (
+        <div className="chat-container">
+          <div className="header-chat">
+            <span>🤖 Chat Assistant</span>
+            <div className="space-x-2">
+              <button
+                onClick={resetChat}
+                className="reset-btn"
+                title="Reset chat"
+              >
+                Reset
+              </button>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="text-white hover:text-gray-200 text-sm"
+                title="Minimize"
+              >
+                ✕
+              </button>
             </div>
           </div>
-        ))}
-        <div ref={messagesEndRef} />
-      </div>
 
-      <div className="flex border-t border-gray-200 p-2">
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={handleKeyDown}
-          placeholder="Ask about products..."
-          className="flex-1 px-3 py-2 border rounded-l-md focus:outline-none"
-          style={{ width: "50%", padding: '10px' } }
-        />
-        <button
-          onClick={handleUserInput}
-          className="bg-blue-600 text-white px-4 py-2 rounded-r-md hover:bg-blue-700 transition"
-        >
-          Send
-        </button>
-      </div>
-      <div className="flex justify-end p-2 bg-white border-t border-gray-100">
-  <button
-    onClick={() =>
-      setMessages([
-        {
-          sender: "bot",
-          text: "Hi! How can I help you today?",
-          timestamp: Date.now(),
-          type: "text",
-        },
-      ])
-    }
-    className="text-sm text-gray-500 hover:text-red-600 transition"
-  >
-    🗑️ Clear Chat
-  </button>
-</div>
-    </div>
+          <div className="chat-body">
+            {messages.map((msg, idx) => (
+              <div key={idx} className="message-row">
+                {msg.sender === "bot" && <div className="avatar">🤖</div>}
+                <div className="message-bubble">
+                  {msg.type === "text" ? (
+                    msg.text
+                  ) : (
+                    <>
+                      <div className="bg-gray-100 rounded-lg p-2">
+                        <p className="text-sm mb-2">{msg.text}</p>
+                        <div className="products-carousel">
+                          <div className="space-y-4 mt-2">
+                            {msg.payload?.map((product: any) => (
+                              <div
+                                key={product.id}
+                                className="bg-white border rounded-xl p-4 shadow-sm"
+                              >
+                                <ProductItem
+                                  id={product.id}
+                                  name={product.name}
+                                  price={product.price}
+                                  color={product.color}
+                                  discount={product.discount}
+                                  currentPrice={product.currentPrice}
+                                  key={product.id}
+                                  images={product.images}
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
+                {msg.sender === "user" && <div className="avatar">🧑</div>}
+              </div>
+            ))}
+            <div ref={messagesEndRef} />
+          </div>
+
+          <div className="chat-input">
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder="Message Chat Assistant..."
+            />
+            <button onClick={handleUserInput}>Send</button>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
